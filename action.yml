@@ -10,6 +10,6 @@ runs:
   steps:
     - run: echo waiting for docker containers to be started ...
       shell: bash
-    - run: ${{ github.action_path }}/waitForContainers.sh ${{ inputs.time-to-wait }}
+    - run: ${{ github.action_path }}/waitForDockerContainers.sh ${{ inputs.time-to-wait }}
       shell: bash
 
