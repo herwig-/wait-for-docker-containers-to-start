@@ -1,0 +1,15 @@
+name: 'wait for docker containers'
+description: 'waits till all docker containers left the state starting'
+inputs:
+  time-to-wait:  # id of input
+    description: 'time to wait in seconds between status checks'
+    required: false
+    default: 10
+runs:
+  using: "composite"
+  steps:
+    - run: echo waiting for docker containers to be started ...
+      shell: bash
+    - run: ${{ github.action_path }}/waitForContainers.sh ${{ inputs.time-to-wait }}
+      shell: bash
+
